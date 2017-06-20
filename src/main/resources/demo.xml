@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<users> 
+  <user> 
+    <name>ldd</name>  
+    <age>25</age> 
+  </user>  
+  <user> 
+    <name>lcc</name>  
+    <age>23</age> 
+  </user>  
+  <user> 
+    <name>胡朝凯</name>  
+    <age>24</age> 
+  </user>
+</users>
