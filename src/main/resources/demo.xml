@@ -12,5 +12,9 @@
   <user> 
     <name>胡朝凯</name>  
     <age>24</age> 
+  </user>  
+  <user>
+    <name>黄加洋</name>
+    <age>250</age>
   </user>
 </users>

@@ -10,12 +10,13 @@ import java.util.List;
  *  XmlUtil测试类
  */
 public class XmlTest {
+
     public static void main(String[] args) throws Exception {
         XmlUtil xmlUtil = new XmlUtil();
-       User user = new User();
-        user.setName("胡朝凯");
-        user.setAge(24);
-        xmlUtil.addUserToXml(user);
+//        User user = new User();
+//        user.setName("黄加洋");
+//        user.setAge(250);
+//        xmlUtil.addUserToXml(user);
 
         List<User> users = xmlUtil.readXml();
         users.forEach(System.out::println);

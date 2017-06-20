@@ -2,22 +2,17 @@ package com.ldd.util;
 
 import com.ldd.pojo.User;
 import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.Element;
+import org.dom4j.XPath;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
-import org.junit.Test;
 
-import javax.sql.rowset.spi.XmlWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * 读写xml工具类
@@ -33,8 +28,10 @@ public class XmlUtil {
     public List<User> readXml() throws Exception{
         List<User> users = new ArrayList<User>();
         Document document = getDocument();
-        Element rootElement = document.getRootElement();
-        List<Element> elements = rootElement.elements();
+        XPath xPath = document.createXPath("//users/user");
+//        Element rootElement = document.getRootElement();
+//        List<Element> elements = rootElement.elements();
+        List<Element> elements = xPath.selectNodes(document);
         for (int i = 0; i < elements.size(); i++) {
             User user = new User();
             user.setName(elements.get(i).elementText("name"));
@@ -68,7 +65,6 @@ public class XmlUtil {
      */
     private Document getDocument() throws Exception {
         InputStream is = XmlUtil.class.getClassLoader().getResourceAsStream("demo.xml");
-
         SAXReader saxReader = new SAXReader();
         return saxReader.read(is);
     }
